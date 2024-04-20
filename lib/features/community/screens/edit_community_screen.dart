@@ -86,7 +86,6 @@ class _EditCommunityScreenState extends ConsumerState<EditCommunityScreen> {
         data: (community) => Scaffold(
               backgroundColor:currentTheme.secondaryHeaderColor,
               appBar: AppBar(
-                automaticallyImplyLeading: false,
                 title: const Text("Edit Community"),
                 centerTitle: false,
                 actions: [

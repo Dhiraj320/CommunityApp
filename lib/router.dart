@@ -21,7 +21,6 @@ final loggedOutRoute = RouteMap(routes: {
 //loggedIn
 final loggedInRoute = RouteMap(routes: {
   '/': (_) => const MaterialPage(child: HomeScreen()),
-  
   '/create-community': (_) =>
       const MaterialPage(child: CreateCommunityScreen()),
   //dynamic route because every community is different
