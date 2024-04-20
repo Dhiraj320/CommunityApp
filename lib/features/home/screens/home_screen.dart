@@ -63,10 +63,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     context: context, delegate: SearchCommunityDelegate(ref));
               },
               icon: const Icon(Icons.search)),
-              IconButton(onPressed: (){
+             kIsWeb? IconButton(onPressed: (){
                 navigateToWebAddPost(context);
                 
-              }, icon: const Icon(Icons.add),),
+              }, icon: const Icon(Icons.add),): const SizedBox(),
           Builder(builder: (context) {
             return IconButton(
               onPressed: () => displayEndDrawer(context),

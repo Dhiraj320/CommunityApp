@@ -94,6 +94,7 @@ class _AddPostTypeScreenState extends ConsumerState<AddPostTypeScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text("Post ${widget.type}"),
         actions: [
           TextButton(

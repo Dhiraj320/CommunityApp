@@ -42,6 +42,9 @@ class _AddModsScreenState extends ConsumerState<AddModsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+          title: const Text("Edit Community"),
+                centerTitle: false,
         actions: [IconButton(onPressed:saveMods, icon: const Icon(Icons.done))],
       ),
       body: ref.watch(getCommunityByNameProvider(widget.name)).when(

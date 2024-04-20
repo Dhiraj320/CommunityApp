@@ -101,6 +101,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
         data: (user) => Scaffold(
               backgroundColor:currentTheme.secondaryHeaderColor ,
               appBar: AppBar(
+                automaticallyImplyLeading: false,
                 title: const Text("Edit Profile"),
                 centerTitle: false,
                 actions: [
