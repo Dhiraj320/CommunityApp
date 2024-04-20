@@ -8,10 +8,13 @@ import 'package:redit_clone/core/common/error_text.dart';
 import 'package:redit_clone/core/common/loader.dart';
 import 'package:redit_clone/core/utils.dart';
 import 'package:redit_clone/features/community/controller/community_controller.dart';
+
 import 'package:redit_clone/features/post/controller/post_controller.dart';
+
 import 'package:redit_clone/models/community_model.dart';
 import 'package:redit_clone/responsive/responsive.dart';
 import 'package:redit_clone/theme/pallete.dart';
+
 
 class AddPostTypeScreen extends ConsumerStatefulWidget {
   final String type;
@@ -54,12 +57,15 @@ class _AddPostTypeScreenState extends ConsumerState<AddPostTypeScreen> {
     }
   }
 
-  void sharePost(BuildContext context) {
+ 
+
+  void sharePost() {
     if (widget.type == 'image' &&
         (bannerFile != null || bannerWebFile != null) &&
         titileController.text.isNotEmpty) {
       ref.read(postControllerProvider.notifier).shareImagePost(
-          context: context,
+        context:  context,
+         
           title: titileController.text.trim(),
           selectedCommunity: selectedCommunity ?? communities[0],
           file: bannerFile,
@@ -95,11 +101,15 @@ class _AddPostTypeScreenState extends ConsumerState<AddPostTypeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Post ${widget.type}"),
+        automaticallyImplyLeading: false,
+       
+            
         actions: [
           TextButton(
               onPressed: () {
-                sharePost(context);
+                sharePost();
                 Navigator.pop(context);
+               
               },
               child: const Text("Share"))
         ],
@@ -141,9 +151,9 @@ class _AddPostTypeScreenState extends ConsumerState<AddPostTypeScreen> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: bannerWebFile != null
-                                    ? Image.memory(bannerWebFile!)
+                                    ? Image.memory(bannerWebFile!, )
                                     : bannerFile != null
-                                        ? Image.file(bannerFile!)
+                                        ? Image.file(bannerFile!, )
                                         : const Center(
                                             child: Icon(
                                                 Icons.camera_alt_outlined,

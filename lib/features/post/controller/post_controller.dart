@@ -195,7 +195,7 @@ class PostController extends StateNotifier<bool> {
                 l.message,
               ), (r) {
         showSnackBar(
-          context,
+          context,  
           'Post added successfully',
         );
         Routemaster.of(context).pop();

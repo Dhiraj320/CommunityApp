@@ -49,8 +49,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final isGuest = !user.isAuthenticated;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
-        centerTitle: false,
+        title:  Text('Redit Clone',
+        style: TextStyle(
+          color: currentTheme.iconTheme.color,
+        ),),
+
+        centerTitle: true,
         leading: Builder(builder: (context) {
           return IconButton(
               onPressed: () => displayDrawer(context),
@@ -63,10 +67,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     context: context, delegate: SearchCommunityDelegate(ref));
               },
               icon: const Icon(Icons.search)),
-              IconButton(onPressed: (){
+              
+              
+              kIsWeb?  IconButton(onPressed: (){
                 navigateToWebAddPost(context);
                 
-              }, icon: const Icon(Icons.add),),
+              }, icon: const Icon(Icons.add),) : Container(),
           Builder(builder: (context) {
             return IconButton(
               onPressed: () => displayEndDrawer(context),
@@ -80,7 +86,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       body: Constants.tabWidget[_page],
       drawer:  isGuest ? 
       Dialog(
-
+    
         child: Container(
           color: Pallete.drawerColor,
           padding: const EdgeInsets.all(20),
@@ -103,10 +109,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                const SizedBox(width: 5),
               ElevatedButton.icon(onPressed: (){
                  ref.read(authControllerProvider.notifier).signInWithGoogle(context, true);
-
-
+    
+    
               }, icon: Image.asset('assets/images/google.png', height: 20, width: 20), label: const Text('Google SignIn')),
-
+    
               
                
               
@@ -140,10 +146,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                const SizedBox(width: 5),
               ElevatedButton.icon(onPressed: (){
                  ref.read(authControllerProvider.notifier).signInWithGoogle(context, true);
-
-
+    
+    
               }, icon: Image.asset('assets/images/google.png', height: 20, width: 20), label: const Text('Google SignIn')),
-
+    
               
                
               
